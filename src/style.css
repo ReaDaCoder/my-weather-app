@@ -1,0 +1,31 @@
+h1 {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #1d3043;
+}
+h2 {
+  text-align: center;
+}
+.image {
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.container {
+  border: 1px solid;
+  padding: 20px;
+  margin-top: 20px;
+}
+form {
+  text-align: center;
+}
+.temperature {
+  font-size: large;
+  font-weight: 500;
+  text-align: center;
+}
+body {
+  background: linear-gradient(45deg, #84d4fc, #447494);
+}
