@@ -52,7 +52,7 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let apiKey = "64469ac67e6dc941feb5b50915a18dc7";
 let city = document.querySelector("#city");
-let url = `http//api.openweathermap.org/data/2.5/weather?q=$
+let url = `https//api.openweathermap.org/data/2.5/weather?q=$
 {city}&units=metric`;
 
 function searchCity(city) {
@@ -80,7 +80,7 @@ function getPosition(position) {
   let longitude = position.coords.longitude;
   let units = "metric";
   let apiKey = "64469ac67e6dc941feb5b50915a18dc7";
-  let apiPoint = "http://api.openweathermap.org/data/2.5/weather";
+  let apiPoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiPoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(giveTemperature);
