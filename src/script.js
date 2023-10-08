@@ -23,7 +23,7 @@ function search(event) {
 
   let h1 = document.querySelector("h1");
   if (input.value) {
-    h1.innerHTML = `${input.value}`;
+    searchCity(input.value);
   } else {
     h1.innerHTML = null;
     alert("please enter a city");
@@ -72,6 +72,9 @@ function giveTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+let cityName = response.data.name;
+document.querySelector("h1").textContent = cityName;
+
 let searchButton = document.querySelector(".temperature");
 searchButton.addEventListener("submit", search);
 
