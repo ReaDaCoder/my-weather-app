@@ -17,21 +17,6 @@ let day = days[now.getDay()];
 
 h2.innerHTML = `${day} ${hours}:${minutes}`;
 
-function search(event) {
-  event.preventDefault();
-  let input = document.querySelector("#city");
-
-  let h1 = document.querySelector("h1");
-  if (input.value) {
-    searchCity(input.value);
-  } else {
-    h1.innerHTML = null;
-    alert("please enter a city");
-  }
-}
-let form = document.querySelector("#enter-city-form");
-form.addEventListener("submit", search);
-
 function showCelsuis(event) {
   event.preventDefault();
   let celsuis = `${"#temperature"}`;
@@ -60,6 +45,22 @@ function searchCity(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
   axiox.get(`${url}&appid=${apiKey}`).then(giveTemperature);
 }
+function search(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city");
+
+  let h1 = document.querySelector("h1");
+  if (cityInput.value) {
+    let city = cityInput.value;
+    searchCity(city);
+    h1.innerHTML = `${cityInput.value}`;
+  } else {
+    h1.innerHTML = null;
+    alert("please enter a city");
+  }
+}
+let form = document.querySelector("#enter-city-form");
+form.addEventListener("submit", search);
 
 function giveTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -72,9 +73,6 @@ function giveTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
-let cityName = response.data.name;
-document.querySelector("h1").textContent = cityName;
-
 let searchButton = document.querySelector(".temperature");
 searchButton.addEventListener("submit", search);
 
