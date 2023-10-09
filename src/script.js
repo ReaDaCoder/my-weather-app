@@ -37,14 +37,15 @@ fahrenheitLink.addEventListener("click", showFahrenheit);
 
 let apiKey = "64469ac67e6dc941feb5b50915a18dc7";
 let city = document.querySelector("#city");
-let url = `https//api.openweathermap.org/data/2.5/weather?q=$
-{city}&units=metric`;
+let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 
 function searchCity(city) {
-  let apiKey = "64469ac67e6dc941feb5b50915a18dc7";
+  let city = document.querySelector("#city");
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+
   axiox.get(`${url}&appid=${apiKey}`).then(giveTemperature);
 }
+
 function search(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city");
