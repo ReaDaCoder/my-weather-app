@@ -40,7 +40,6 @@ let city = document.querySelector("#city");
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 
 function searchCity(city) {
-  let city = document.querySelector("#city");
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 
   axiox.get(`${url}&appid=${apiKey}`).then(giveTemperature);
