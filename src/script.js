@@ -47,13 +47,11 @@ function searchCity(city) {
 
 function search(event) {
   event.preventDefault();
-  let cityInput = document.querySelector("#city");
+  let input = document.querySelector("#city");
 
   let h1 = document.querySelector("h1");
-  if (cityInput.value) {
-    let city = cityInput.value;
-    searchCity(city);
-    h1.innerHTML = `${cityInput.value}`;
+  if (input.value) {
+    h1.innerHTML = `${input.value}`;
   } else {
     h1.innerHTML = null;
     alert("please enter a city");
