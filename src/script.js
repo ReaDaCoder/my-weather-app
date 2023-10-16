@@ -42,7 +42,7 @@ let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metri
 function searchCity(city) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
 
-  axiox.get(`${url}&appid=${apiKey}`).then(giveTemperature);
+  axios.get(`${url}&appid=${apiKey}`).then(giveTemperature);
 }
 
 function search(event) {
