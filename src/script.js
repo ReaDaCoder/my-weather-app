@@ -52,6 +52,7 @@ function search(event) {
   let h1 = document.querySelector("h1");
   if (input.value) {
     h1.innerHTML = `${input.value}`;
+    searchCity(input.value);
   } else {
     h1.innerHTML = null;
     alert("please enter a city");
@@ -62,7 +63,7 @@ form.addEventListener("submit", search);
 
 function giveTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
-  let conditions = document.querySelector(".temperature");
+  let conditions = document.querySelector(".temperatureText");
   conditions.innerHTML = `${temperature}°C`;
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
