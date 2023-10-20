@@ -29,3 +29,10 @@ form {
 body {
   background: linear-gradient(45deg, #84d4fc, #447494);
 }
+.active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
