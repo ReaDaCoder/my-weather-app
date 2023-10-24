@@ -64,6 +64,34 @@ form.addEventListener("submit", search);
 
 let celsiusTemperature = null;
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `
+  <div class="row">
+  <div class="col-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <span class="forecast-day">Mon</span>
+                </h5>
+                <img
+                  src="https://w7.pngwing.com/pngs/955/496/png-transparent-sun-and-cloud-digital-illustration-weather-forecasting-rain-icon-shower-weather-icon-material-company-cloud-camera-icon.png"
+                  class="card-img-top"
+                />
+                <br />
+                <h6 class="card-subtitle mb-2 text-body-secondary">
+                  <span class="forecast-max">22°</span>
+                  <span class="forecast-min">7°</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+  </div>
+  </div>
+  `;
+}
+showForecast();
 function giveTemperature(response) {
   let temperatureElement = document.querySelector(".temperatureText");
   celsiusTemperature = Math.round(response.data.main.temp);
