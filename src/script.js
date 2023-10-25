@@ -66,9 +66,11 @@ let celsiusTemperature = null;
 
 function showForecast() {
   let forecastElement = document.querySelector("#forecast");
-
-  let forecastHTML = `
-  <div class="row">
+  let days = ["Tues", "Wed", "Thurs", "Fri"];
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `
   <div class="col-2">
             <div class="card">
               <div class="card-body">
@@ -88,10 +90,13 @@ function showForecast() {
             </div>
           </div>
   </div>
-  </div>
   `;
+  forecastHTML = forecastHTML + ` </div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
+
 showForecast();
+
 function giveTemperature(response) {
   let temperatureElement = document.querySelector(".temperatureText");
   celsiusTemperature = Math.round(response.data.main.temp);
