@@ -64,35 +64,52 @@ form.addEventListener("submit", search);
 
 let celsiusTemperature = null;
 
+function dayFormat(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDate();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function showForecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
 
   let days = ["Tues", "Wed", "Thurs", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  days.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col-2">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">
-                  <span class="forecast-day">Mon</span>
+                  <span class="forecast-day">${dayFormat(forecastDay.dt)}</span>
                 </h5>
                 <img
-                  src="https://w7.pngwing.com/pngs/955/496/png-transparent-sun-and-cloud-digital-illustration-weather-forecasting-rain-icon-shower-weather-icon-material-company-cloud-camera-icon.png"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastDay.weathher[0].icon
+                  }@2x.png"
                   class="card-img-top"
                 />
                 <br />
                 <h6 class="card-subtitle mb-2 text-body-secondary">
-                  <span class="forecast-max">22°</span>
-                  <span class="forecast-min">7°</span>
+                  <span class="forecast-max">${Math.round(
+                    forecastDay.temp.max
+                  )}°</span>
+                  <span class="forecast-min">${Math.round(
+                    forecastDay.temp.min
+                  )}°</span>
                 </h6>
               </div>
             </div>
   </div>
   `;
+    }
   });
 
   forecastHTML = forecastHTML + ` </div>`;
