@@ -66,7 +66,7 @@ let celsiusTemperature = null;
 
 function dayFormat(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = date.getDate();
+  let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
@@ -77,9 +77,7 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-
-  let days = ["Tues", "Wed", "Thurs", "Fri"];
-  days.forEach(function (forecastDay, index) {
+  forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
       forecastHTML =
         forecastHTML +
@@ -92,7 +90,7 @@ function showForecast(response) {
                 </h5>
                 <img
                   src="http://openweathermap.org/img/wn/${
-                    forecastDay.weathher[0].icon
+                    forecastDay.weather[0].icon
                   }@2x.png"
                   class="card-img-top"
                 />
