@@ -120,6 +120,7 @@ function giveForecast(coordinates) {
 }
 
 function giveTemperature(response) {
+  console.log(response.data);
   let temperatureElement = document.querySelector(".temperatureText");
   celsiusTemperature = Math.round(response.data.main.temp);
   temperatureElement = Math.round(celsiusTemperature);
