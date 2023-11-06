@@ -121,6 +121,10 @@ function giveForecast(coordinates) {
 
 function giveTemperature(response) {
   console.log(response.data);
+  let humilityElement = document.querySelector(".humility");
+  humilityElement.innerHTML = `Humility: ${response.data.main.humility} %`;
+  let windElement = document.querySelector(".wind");
+  windElement.innerHTML = `Windy: ${Math.round(response.data.wind.speed)} km/h`;
   let temperatureElement = document.querySelector(".temperatureText");
   celsiusTemperature = Math.round(response.data.main.temp);
   temperatureElement = Math.round(celsiusTemperature);
