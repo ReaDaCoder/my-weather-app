@@ -7,6 +7,11 @@ h1 {
 h2 {
   text-align: center;
 }
+.temperatureText {
+  font-size: large;
+  font-weight: 600;
+  color: #1d3043;
+}
 .image {
   width: 200px;
   display: block;
@@ -27,7 +32,7 @@ form {
   text-align: center;
 }
 body {
-  background: linear-gradient(45deg, #84d4fc, #447494);
+  background: linear-gradient(45deg, #7aacd4, #044383);
 }
 .active {
   color: rgb(33, 33, 33);
